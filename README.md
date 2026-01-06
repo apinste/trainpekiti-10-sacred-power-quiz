@@ -1,4 +1,4 @@
-# Pekiti Tirsia Kali DC/MD/VA — 10 Sacred Power Quiz
+# 10 Sacred Power Quiz
 
 This repository hosts the **10 Sacred Power Quiz**, an interactive assessment designed to help practitioners identify which inner power is most active in their life right now. The quiz blends Filipino Martial Arts principles with somatic awareness, cyclical intelligence, and modern learning psychology.
 
