@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pekiti Tirsia Kali DC/MD/VA – Sacred Power Quiz</title>
+  <style>
+    :root {
+      --bg-color: #000000;
+      --text-color: #ffffff;
+      --accent-color: #cc5500; /* dark orange */
+      --card-bg: #111111;
+      --border-color: #333333;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header, footer {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header h1, header h2 {
+      margin: 5px 0;
+    }
+
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    h2, h3, h4 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .path-buttons button {
+      margin: 10px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .question:last-child {
+      border-bottom: none;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+    .small-note {
+      font-size: 0.9rem;
+      color: #cccccc;
+    }
+
+    .result-block {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .result-block:last-child {
+      border-bottom: none;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .error {
+      color: #ff9999;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Pekiti Tirsia Kali DC/MD/VA</h1>
+  <h2>Discover Your Current Sacred Power</h2>
+  <p>A Dual‑Path Quiz for Feminine and Masculine Energetic Orientation</p>
+</header>
+
+<main>
+
+  <!-- INTRO TEXT -->
+  <section>
+    <h3>About This Quiz</h3>
+    <p>
+      This quiz helps you understand which inner power is most active in your life right now.
+      These powers are not personality types — they are states that rise and fall depending on
+      your energy, stress load, relationships, and life season.
+    </p>
+
+    <p>Your results will show:</p>
+    <ul>
+      <li><strong>Primary Power</strong> — what’s strongest right now</li>
+      <li><strong>Emerging Power</strong> — what’s developing</li>
+      <li><strong>Shadow Power</strong> — what needs attention</li>
+    </ul>
+
+    <p>
+      You can revisit this quiz anytime you feel a shift — monthly, seasonally, or during times of transition.
+    </p>
+  </section>
+
+  <!-- PATH SELECTOR -->
+  <section class="center">
+    <h3>Select Your Interpretation Path</h3>
+    <p>Choose the path that best matches your energetic orientation. The questions are the same; the interpretation changes.</p>
+
+    <div class="path-buttons">
+      <button type="button" onclick="selectPath('feminine')">Feminine Path</button>
+      <button type="button" onclick="selectPath('masculine')">Masculine Path</button>
+    </div>
+
+    <p class="small-note">
+      <strong>Feminine Path:</strong> cycles, intuition, emotional depth, embodiment, relational wisdom.<br>
+      <strong>Masculine Path:</strong> warriorship, tactical awareness, leadership, discipline, strategic clarity.
+    </p>
+    <div id="pathError" class="error hidden">Please select a path before taking the quiz.</div>
+  </section>
+
+  <!-- QUIZ CONTAINER -->
+  <section id="quiz" class="hidden">
+    <h3>Your Quiz</h3>
+    <p class="small-note">
+      Answer based on how things feel for you <strong>right now</strong>, not how you think you “should” be.
+    </p>
+
+    <!-- 20 QUESTIONS -->
+    <div id="questions">
+
+      <!-- Q1 -->
+      <div class="question">
+        <p><strong>1. How does your energy feel this week?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="A"> It rises and falls in natural waves.</label>
+          <label><input type="radio" name="q1" value="B"> I’m tuned into people and their moods.</label>
+          <label><input type="radio" name="q1" value="C"> My body is picking up subtle signals.</label>
+          <label><input type="radio" name="q1" value="D"> I’m feeling something shifting emotionally.</label>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question">
+        <p><strong>2. What’s guiding your decisions right now?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="A"> My internal rhythm or timing.</label>
+          <label><input type="radio" name="q2" value="B"> My relationships and how people respond.</label>
+          <label><input type="radio" name="q2" value="C"> My gut sense of safety or alignment.</label>
+          <label><input type="radio" name="q2" value="D"> My emotional clarity (or lack of it).</label>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question">
+        <p><strong>3. What feels most true today?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="A"> “I’m in a new phase or cycle.”</label>
+          <label><input type="radio" name="q3" value="B"> “I’m reading people well.”</label>
+          <label><input type="radio" name="q3" value="C"> “My body knows before my mind does.”</label>
+          <label><input type="radio" name="q3" value="D"> “I’m processing something important.”</label>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question">
+        <p><strong>4. Under stress, what do you rely on first?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="A"> Slowing down and pacing myself.</label>
+          <label><input type="radio" name="q4" value="B"> Connection with others to steady myself.</label>
+          <label><input type="radio" name="q4" value="C"> Scanning for cues or boundary shifts.</label>
+          <label><input type="radio" name="q4" value="D"> Letting emotions move instead of holding them.</label>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question">
+        <p><strong>5. What’s changing most clearly in your life right now?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="A"> My energy patterns.</label>
+          <label><input type="radio" name="q5" value="B"> My relationships or social dynamics.</label>
+          <label><input type="radio" name="q5" value="C"> My sense of boundaries.</label>
+          <label><input type="radio" name="q5" value="D"> My identity or role.</label>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="question">
+        <p><strong>6. How are ideas coming to you lately?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="A"> In cycles or waves over time.</label>
+          <label><input type="radio" name="q6" value="B"> Through conversations or collaboration.</label>
+          <label><input type="radio" name="q6" value="C"> Through sensations or intuition.</label>
+          <label><input type="radio" name="q6" value="D"> Through emotional release or reflection.</label>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="question">
+        <p><strong>7. What is your body telling you most often?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="A"> Rest, rise, rest — honor the rhythm.</label>
+          <label><input type="radio" name="q7" value="B"> Stay connected, don’t isolate.</label>
+          <label><input type="radio" name="q7" value="C"> Pay attention, something is off or shifting.</label>
+          <label><input type="radio" name="q7" value="D"> Let it move through; don’t bottle it up.</label>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="question">
+        <p><strong>8. What’s your biggest challenge right now?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="A"> Timing things well.</label>
+          <label><input type="radio" name="q8" value="B"> Communicating and staying in sync with others.</label>
+          <label><input type="radio" name="q8" value="C"> Setting or sensing boundaries clearly.</label>
+          <label><input type="radio" name="q8" value="D"> Letting go of something old.</label>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="question">
+        <p><strong>9. What feels like your current strength?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="A"> Rhythm and pacing.</label>
+          <label><input type="radio" name="q9" value="B"> Influence and connection.</label>
+          <label><input type="radio" name="q9" value="C"> Intuition and awareness.</label>
+          <label><input type="radio" name="q9" value="D"> Emotional depth and honesty.</label>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="question">
+        <p><strong>10. What feels like your current growth edge?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="A"> Learning better pacing.</label>
+          <label><input type="radio" name="q10" value="B"> Leading through presence, not pressure.</label>
+          <label><input type="radio" name="q10" value="C"> Trusting your body’s signals.</label>
+          <label><input type="radio" name="q10" value="D"> Transforming old emotional patterns.</label>
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="question">
+        <p><strong>11. What’s calling you forward?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q11" value="A"> A new season or phase of life.</label>
+          <label><input type="radio" name="q11" value="B"> A new way of relating to others.</label>
+          <label><input type="radio" name="q11" value="C"> A new truth or clear perception.</label>
+          <label><input type="radio" name="q11" value="D"> A new version of yourself.</label>
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="question">
+        <p><strong>12. What best describes your creative state?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q12" value="A"> Slow build — things are forming over time.</label>
+          <label><input type="radio" name="q12" value="B"> Inspired by conversations and people.</label>
+          <label><input type="radio" name="q12" value="C"> Sensory and intuitive — ideas come as feelings.</label>
+          <label><input type="radio" name="q12" value="D"> Emotional and expressive — ideas come with feeling.</label>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="question">
+        <p><strong>13. How does your nervous system feel most of the time?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q13" value="A"> Cycling between higher and lower energy.</label>
+          <label><input type="radio" name="q13" value="B"> Settled best when I’m around safe people.</label>
+          <label><input type="radio" name="q13" value="C"> Alert, scanning the environment.</label>
+          <label><input type="radio" name="q13" value="D"> Releasing tension when I let myself feel.</label>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="question">
+        <p><strong>14. What lesson keeps showing up lately?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q14" value="A"> Respect your timing.</label>
+          <label><input type="radio" name="q14" value="B"> Relationships matter more than you think.</label>
+          <label><input type="radio" name="q14" value="C"> Trust your intuition.</label>
+          <label><input type="radio" name="q14" value="D"> Feel things fully instead of pushing them away.</label>
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="question">
+        <p><strong>15. What’s the “season” of your life right now?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q15" value="A"> Transition — something is shifting.</label>
+          <label><input type="radio" name="q15" value="B"> Connection — relationships are central.</label>
+          <label><input type="radio" name="q15" value="C"> Alertness — you’re seeing more clearly.</label>
+          <label><input type="radio" name="q15" value="D"> Depth — you’re going inward.</label>
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="question">
+        <p><strong>16. What do you want most right now?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q16" value="A"> Flow — to feel in sync.</label>
+          <label><input type="radio" name="q16" value="B"> Harmony — in relationships and groups.</label>
+          <label><input type="radio" name="q16" value="C"> Clarity — to see what’s really going on.</label>
+          <label><input type="radio" name="q16" value="D"> Release — to let something go.</label>
+        </div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="question">
+        <p><strong>17. What’s frustrating you the most?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q17" value="A"> Feeling out of sync or off‑rhythm.</label>
+          <label><input type="radio" name="q17" value="B"> Miscommunication or disconnection.</label>
+          <label><input type="radio" name="q17" value="C"> Mixed signals or unclear intentions.</label>
+          <label><input type="radio" name="q17" value="D"> Emotional buildup or heaviness.</label>
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="question">
+        <p><strong>18. What inner work are you most aware of doing?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q18" value="A"> Learning your own rhythm.</label>
+          <label><input type="radio" name="q18" value="B"> Deepening connection and communication.</label>
+          <label><input type="radio" name="q18" value="C"> Growing your awareness and perception.</label>
+          <label><input type="radio" name="q18" value="D"> Releasing old emotions or stories.</label>
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="question">
+        <p><strong>19. What’s your instinct lately when something feels off?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q19" value="A"> Adjust your pace or timing.</label>
+          <label><input type="radio" name="q19" value="B"> Talk to someone you trust.</label>
+          <label><input type="radio" name="q19" value="C"> Notice your body and environment more closely.</label>
+          <label><input type="radio" name="q19" value="D"> Sit with the feeling and let it move.</label>
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="question">
+        <p><strong>20. What feels most true right now?</strong></p>
+        <div class="options">
+          <label><input type="radio" name="q20" value="A"> “I’m cycling through a new phase.”</label>
+          <label><input type="radio" name="q20" value="B"> “I’m influencing and connecting more.”</label>
+          <label><input type="radio" name="q20" value="C"> “I’m sensing more than I can explain.”</label>
+          <label><input type="radio" name="q20" value="D"> “I’m transforming from the inside out.”</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="quizError" class="error hidden">Please answer all questions before submitting.</div>
+
+    <div class="center" style="margin-top:20px;">
+      <button type="button" onclick="submitQuiz()">Submit</button>
+    </div>
+  </section>
+
+  <!-- RESULTS CONTAINER -->
+  <section id="results" class="hidden">
+    <h3>Your Results</h3>
+    <div id="resultsPathLabel" class="small-note"></div>
+    <div id="resultsContent"></div>
+
+    <div class="center" style="margin-top:20px;">
+      <button type="button" onclick="restartQuiz()">Retake Quiz</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="https://trainpekiti.com" target="_blank">trainpekiti.com</a></p>
+  <p>Offering private and quality Filipino Martial Arts instruction in the DC/MD/VA area</p>
+</footer>
+
+<script>
+  let selectedPath = null;
+
+  // Map rhythms to powers
+  const rhythmToPrimaryPower = {
+    A: "cyclical_intelligence",
+    B: "relational_leadership",
+    C: "somatic_intuition",
+    D: "emotional_alchemy"
+  };
+
+  const rhythmToEmergingPower = {
+    A: "creative_emergence",
+    B: "embodied_presence",
+    C: "pattern_vision",
+    D: "threshold_wisdom"
+  };
+
+  const rhythmToShadowPower = {
+    A: "cyclical_intelligence",
+    B: "relational_leadership",
+    C: "somatic_intuition",
+    D: "receptive_strength"
+  };
+
+  // Descriptions for each power and path
+  const powerDescriptions = {
+    cyclical_intelligence: {
+      name: "The Power of Cyclical Intelligence",
+      feminine: "You’re in a season where your energy rises and falls in waves. You’re learning to trust your inner timing instead of forcing constant output. This power helps you notice when to rest, when to act, and when to shift directions. You’re becoming more attuned to your natural rhythm — the one your body has been trying to show you for years.",
+      masculine: "Your strength right now is timing. You’re learning when to push, when to hold, and when to conserve energy. This is tactical pacing — the same intelligence used in combat, training, and leadership. You’re becoming more efficient because you’re no longer fighting your own internal rhythm."
+    },
+    creative_emergence: {
+      name: "The Power of Creative Emergence",
+      feminine: "Ideas are forming beneath the surface. You may not see the full picture yet, but something is gestating. This power helps you create from intuition, not pressure — letting inspiration rise naturally and trusting that clarity will come as you move.",
+      masculine: "You’re improvising well right now. When plans shift, you adapt. When obstacles appear, you find new angles. This is creative problem‑solving — the ability to generate new strategies under pressure instead of freezing or forcing the old plan."
+    },
+    relational_leadership: {
+      name: "The Power of Relational Leadership",
+      feminine: "Your influence is rising through connection, not force. You’re reading people more clearly, sensing emotional shifts, and guiding conversations with ease. This power helps you create harmony, build trust, and move groups without needing to push.",
+      masculine: "Your leadership is coming from presence, not pressure. You’re reading the room faster, communicating more effectively, and stabilizing others simply by how you show up. This is influence without intimidation — the mark of a mature warrior and leader."
+    },
+    embodied_presence: {
+      name: "The Power of Embodied Presence",
+      feminine: "Your presence is grounding and magnetic. People feel calmer, safer, or more open around you. This power comes from being fully in your body — not performing, just being — and letting your authenticity steady the space you’re in.",
+      masculine: "Your presence carries weight. You don’t need to raise your voice or posture. People respond to your steadiness. This is command presence — the kind that reduces conflict simply by existing and helps others regulate around you."
+    },
+    somatic_intuition: {
+      name: "The Power of Somatic Intuition",
+      feminine: "Your body is speaking loudly right now. You’re sensing boundaries, intentions, and subtle shifts before anything is said out loud. This is your deep knowing — the kind that protects you, guides you, and keeps you aligned with what is true for you.",
+      masculine: "Your threat detection is sharp. You’re picking up on tone, posture, and micro‑signals before your mind analyzes them. This is battlefield awareness — the ability to sense danger, misalignment, or opportunity instantly, and adjust accordingly."
+    },
+    pattern_vision: {
+      name: "The Power of Pattern Vision",
+      feminine: "You’re seeing deeper layers of situations — the patterns beneath the surface. You’re sensing what’s coming before it arrives. This power helps you make wise decisions, avoid repeating old cycles, and recognize when something is truly new.",
+      masculine: "Your strategic awareness is sharp. You’re noticing patterns in people, situations, and outcomes. You’re anticipating problems before they appear. This is long‑range vision — the skill of reading the field and thinking several moves ahead."
+    },
+    emotional_alchemy: {
+      name: "The Power of Emotional Alchemy",
+      feminine: "You’re in a phase of emotional processing. Something old is moving through you — grief, frustration, or a story you’ve outgrown. This power helps you transform heaviness into clarity. You’re not breaking down; you’re breaking through.",
+      masculine: "You’re clearing emotional weight so you can think and act more clearly. This isn’t softness — it’s maintenance. You’re letting stress move instead of storing it. This gives you sharper focus, better decision‑making, and more stability under pressure."
+    },
+    threshold_wisdom: {
+      name: "The Power of Threshold Wisdom",
+      feminine: "You’re standing at an inner doorway — something is ending, and something new is forming. You’re learning to let go without fear and step into the next version of yourself with trust. This is the feminine gift of navigating transitions with grace.",
+      masculine: "You’re shedding an old identity. A role, belief, or pattern is no longer useful. You’re adapting quickly and stepping into a stronger version of yourself. This is evolution — the warrior’s ability to change without losing center."
+    },
+    receptive_strength: {
+      name: "The Power of Receptive Strength",
+      feminine: "You’re learning to let support, intuition, and opportunity come toward you. This is not passivity — it’s openness. You’re allowing life to meet you instead of carrying everything alone, and that is expanding your capacity.",
+      masculine: "You’re gathering information, listening more deeply, and accepting support without ego. This makes you more adaptable and better informed. Receptivity is not weakness — it’s intelligence and strategic advantage."
+    },
+    devotional_discipline: {
+      name: "The Power of Devotional Discipline",
+      feminine: "You’re showing up consistently for what matters. This isn’t hustle — it’s devotion. You’re building something slowly, steadily, and with heart. Your commitment is becoming a source of strength and self‑respect.",
+      masculine: "Your discipline is clean and steady. You’re training, practicing, or building with long‑term focus. This is the warrior’s path — loyalty to your values, your craft, and your word, even when no one is watching."
+    }
+  };
+
+  function selectPath(path) {
+    selectedPath = path;
+    document.getElementById('pathError').classList.add('hidden');
+    document.getElementById('quiz').classList.remove('hidden');
+    document.getElementById('results').classList.add('hidden');
+    window.scrollTo({ top: document.getElementById('quiz').offsetTop, behavior: 'smooth' });
+  }
+
+  function submitQuiz() {
+    if (!selectedPath) {
+      document.getElementById('pathError').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const answers = [];
+    for (let i = 1; i <= 20; i++) {
+      const qName = 'q' + i;
+      const selected = document.querySelector('input[name="' + qName + '"]:checked');
+      if (!selected) {
+        document.getElementById('quizError').classList.remove('hidden');
+        window.scrollTo({ top: document.getElementById('quiz').offsetTop, behavior: 'smooth' });
+        return;
+      }
+      answers.push(selected.value);
+    }
+
+    document.getElementById('quizError').classList.add('hidden');
+
+    // Count A/B/C/D
+    const counts = { A: 0, B: 0, C: 0, D: 0 };
+    answers.forEach(val => {
+      if (counts[val] !== undefined) counts[val]++;
+    });
+
+    // Determine primary, emerging, shadow
+    const rhythmKeys = Object.keys(counts);
+
+    rhythmKeys.sort((a, b) => counts[b] - counts[a]); // descending
+
+    const primaryRhythm = rhythmKeys[0];
+    const emergingRhythm = rhythmKeys[1];
+    const shadowRhythm = rhythmKeys[3]; // lowest
+
+    const primaryPowerKey = rhythmToPrimaryPower[primaryRhythm];
+    const emergingPowerKey = rhythmToEmergingPower[emergingRhythm];
+    const shadowPowerKey = rhythmToShadowPower[shadowRhythm];
+
+    const pathLabel = selectedPath === 'feminine' ? 'Feminine Path Interpretation' : 'Masculine Path Interpretation';
+
+    document.getElementById('resultsPathLabel').textContent = pathLabel;
+
+    const primaryDesc = powerDescriptions[primaryPowerKey];
+    const emergingDesc = powerDescriptions[emergingPowerKey];
+    const shadowDesc = powerDescriptions[shadowPowerKey];
+
+    const mode = selectedPath === 'feminine' ? 'feminine' : 'masculine';
+
+    const resultsDiv = document.getElementById('resultsContent');
+    resultsDiv.innerHTML = `
+      <div class="result-block">
+        <span class="tag">Primary Power</span>
+        <h4>${primaryDesc.name}</h4>
+        <p>${primaryDesc[mode]}</p>
+      </div>
+
+      <div class="result-block">
+        <span class="tag">Emerging Power</span>
+        <h4>${emergingDesc.name}</h4>
+        <p>${emergingDesc[mode]}</p>
+      </div>
+
+      <div class="result-block">
+        <span class="tag">Shadow Power</span>
+        <h4>${shadowDesc.name}</h4>
+        <p>${shadowDesc[mode]}</p>
+      </div>
+
+      <div class="result-block">
+        <span class="tag">Support Power</span>
+        <h4>${powerDescriptions.devotional_discipline.name}</h4>
+        <p>${powerDescriptions.devotional_discipline[mode]}</p>
+      </div>
+    `;
+
+    // Hide quiz, show results
+    document.getElementById('quiz').classList.add('hidden');
+    document.getElementById('results').classList.remove('hidden');
+    window.scrollTo({ top: document.getElementById('results').offsetTop, behavior: 'smooth' });
+  }
+
+  function restartQuiz() {
+    // Reset selections
+    for (let i = 1; i <= 20; i++) {
+      const qName = 'q' + i;
+      const selected = document.querySelector('input[name="' + qName + '"]:checked');
+      if (selected) selected.checked = false;
+    }
+
+    selectedPath = null;
+    document.getElementById('quiz').classList.add('hidden');
+    document.getElementById('results').classList.add('hidden');
+    document.getElementById('pathError').classList.add('hidden');
+    document.getElementById('quizError').classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
