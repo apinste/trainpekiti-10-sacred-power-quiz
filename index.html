@@ -162,6 +162,7 @@
       <li><strong>Primary Power</strong> — what’s strongest right now</li>
       <li><strong>Emerging Power</strong> — what’s developing</li>
       <li><strong>Shadow Power</strong> — what needs attention</li>
+      <li><strong>Support Power</strong> — the stabilizing force that helps you integrate your growth</li>
     </ul>
 
     <p>
@@ -266,7 +267,7 @@
       <div class="question">
         <p><strong>7. What is your body telling you most often?</strong></p>
         <div class="options">
-          <label><input type="radio" name="q7" value="A"> Rest, rise, rest — honor the rhythm.</label>
+          <label><input type="radio" name="q7" value="A"> Rest, rise, rest - honor the rhythm.</label>
           <label><input type="radio" name="q7" value="B"> Stay connected, don’t isolate.</label>
           <label><input type="radio" name="q7" value="C"> Pay attention, something is off or shifting.</label>
           <label><input type="radio" name="q7" value="D"> Let it move through; don’t bottle it up.</label>
@@ -321,10 +322,10 @@
       <div class="question">
         <p><strong>12. What best describes your creative state?</strong></p>
         <div class="options">
-          <label><input type="radio" name="q12" value="A"> Slow build — things are forming over time.</label>
+          <label><input type="radio" name="q12" value="A"> Slow build, things are forming over time.</label>
           <label><input type="radio" name="q12" value="B"> Inspired by conversations and people.</label>
-          <label><input type="radio" name="q12" value="C"> Sensory and intuitive — ideas come as feelings.</label>
-          <label><input type="radio" name="q12" value="D"> Emotional and expressive — ideas come with feeling.</label>
+          <label><input type="radio" name="q12" value="C"> Sensory and intuitive, ideas come as feelings.</label>
+          <label><input type="radio" name="q12" value="D"> Emotional and expressive, ideas come with feeling.</label>
         </div>
       </div>
 
@@ -354,10 +355,10 @@
       <div class="question">
         <p><strong>15. What’s the “season” of your life right now?</strong></p>
         <div class="options">
-          <label><input type="radio" name="q15" value="A"> Transition — something is shifting.</label>
-          <label><input type="radio" name="q15" value="B"> Connection — relationships are central.</label>
-          <label><input type="radio" name="q15" value="C"> Alertness — you’re seeing more clearly.</label>
-          <label><input type="radio" name="q15" value="D"> Depth — you’re going inward.</label>
+          <label><input type="radio" name="q15" value="A"> Transition, something is shifting.</label>
+          <label><input type="radio" name="q15" value="B"> Connection, relationships are central.</label>
+          <label><input type="radio" name="q15" value="C"> Alertness, you’re seeing more clearly.</label>
+          <label><input type="radio" name="q15" value="D"> Depth, you’re going inward.</label>
         </div>
       </div>
 
@@ -365,10 +366,10 @@
       <div class="question">
         <p><strong>16. What do you want most right now?</strong></p>
         <div class="options">
-          <label><input type="radio" name="q16" value="A"> Flow — to feel in sync.</label>
-          <label><input type="radio" name="q16" value="B"> Harmony — in relationships and groups.</label>
-          <label><input type="radio" name="q16" value="C"> Clarity — to see what’s really going on.</label>
-          <label><input type="radio" name="q16" value="D"> Release — to let something go.</label>
+          <label><input type="radio" name="q16" value="A"> Flow to feel in sync.</label>
+          <label><input type="radio" name="q16" value="B"> Harmony in relationships and groups.</label>
+          <label><input type="radio" name="q16" value="C"> Clarity to see what’s really going on.</label>
+          <label><input type="radio" name="q16" value="D"> Release to let something go.</label>
         </div>
       </div>
 
@@ -472,53 +473,53 @@
   const powerDescriptions = {
     cyclical_intelligence: {
       name: "The Power of Cyclical Intelligence",
-      feminine: "You’re in a season where your energy rises and falls in waves. You’re learning to trust your inner timing instead of forcing constant output. This power helps you notice when to rest, when to act, and when to shift directions. You’re becoming more attuned to your natural rhythm — the one your body has been trying to show you for years.",
-      masculine: "Your strength right now is timing. You’re learning when to push, when to hold, and when to conserve energy. This is tactical pacing — the same intelligence used in combat, training, and leadership. You’re becoming more efficient because you’re no longer fighting your own internal rhythm."
+      feminine: "You’re in a season where your energy rises and falls in waves. You’re learning to trust your inner timing instead of forcing constant output. This power helps you notice when to rest, when to act, and when to shift directions. You’re becoming more attuned to your natural rhythm, the one your body has been trying to show you for years.",
+      masculine: "Your strength right now is timing. You’re learning when to push, when to hold, and when to conserve energy. This is tactical pacing... the same intelligence used in combat, training, and leadership. You’re becoming more efficient because you’re no longer fighting your own internal rhythm."
     },
     creative_emergence: {
       name: "The Power of Creative Emergence",
-      feminine: "Ideas are forming beneath the surface. You may not see the full picture yet, but something is gestating. This power helps you create from intuition, not pressure — letting inspiration rise naturally and trusting that clarity will come as you move.",
-      masculine: "You’re improvising well right now. When plans shift, you adapt. When obstacles appear, you find new angles. This is creative problem‑solving — the ability to generate new strategies under pressure instead of freezing or forcing the old plan."
+      feminine: "Ideas are forming beneath the surface. You may not see the full picture yet, but something is gestating. This power helps you create from intuition, not pressure, letting inspiration rise naturally and trusting that clarity will come as you move.",
+      masculine: "You’re improvising well right now. When plans shift, you adapt. When obstacles appear, you find new angles. This is creative problem‑solving, the ability to generate new strategies under pressure instead of freezing or forcing the old plan."
     },
     relational_leadership: {
       name: "The Power of Relational Leadership",
       feminine: "Your influence is rising through connection, not force. You’re reading people more clearly, sensing emotional shifts, and guiding conversations with ease. This power helps you create harmony, build trust, and move groups without needing to push.",
-      masculine: "Your leadership is coming from presence, not pressure. You’re reading the room faster, communicating more effectively, and stabilizing others simply by how you show up. This is influence without intimidation — the mark of a mature warrior and leader."
+      masculine: "Your leadership is coming from presence, not pressure. You’re reading the room faster, communicating more effectively, and stabilizing others simply by how you show up. This is influence without intimidation, the mark of a mature warrior and leader."
     },
     embodied_presence: {
       name: "The Power of Embodied Presence",
-      feminine: "Your presence is grounding and magnetic. People feel calmer, safer, or more open around you. This power comes from being fully in your body — not performing, just being — and letting your authenticity steady the space you’re in.",
-      masculine: "Your presence carries weight. You don’t need to raise your voice or posture. People respond to your steadiness. This is command presence — the kind that reduces conflict simply by existing and helps others regulate around you."
+      feminine: "Your presence is grounding and magnetic. People feel calmer, safer, or more open around you. This power comes from being fully in your body... not performing, just being... and letting your authenticity steady the space you’re in.",
+      masculine: "Your presence carries weight. You don’t need to raise your voice or posture. People respond to your steadiness. This is command presence, the kind that reduces conflict simply by existing and helps others regulate around you."
     },
     somatic_intuition: {
       name: "The Power of Somatic Intuition",
-      feminine: "Your body is speaking loudly right now. You’re sensing boundaries, intentions, and subtle shifts before anything is said out loud. This is your deep knowing — the kind that protects you, guides you, and keeps you aligned with what is true for you.",
-      masculine: "Your threat detection is sharp. You’re picking up on tone, posture, and micro‑signals before your mind analyzes them. This is battlefield awareness — the ability to sense danger, misalignment, or opportunity instantly, and adjust accordingly."
+      feminine: "Your body is speaking loudly right now. You’re sensing boundaries, intentions, and subtle shifts before anything is said out loud. This is your deep knowing, the kind that protects you, guides you, and keeps you aligned with what is true for you.",
+      masculine: "Your threat detection is sharp. You’re picking up on tone, posture, and micro‑signals before your mind analyzes them. This is battlefield awareness, the ability to sense danger, misalignment, or opportunity instantly, and adjust accordingly."
     },
     pattern_vision: {
       name: "The Power of Pattern Vision",
-      feminine: "You’re seeing deeper layers of situations — the patterns beneath the surface. You’re sensing what’s coming before it arrives. This power helps you make wise decisions, avoid repeating old cycles, and recognize when something is truly new.",
-      masculine: "Your strategic awareness is sharp. You’re noticing patterns in people, situations, and outcomes. You’re anticipating problems before they appear. This is long‑range vision — the skill of reading the field and thinking several moves ahead."
+      feminine: "You’re seeing deeper layers of situations, the patterns beneath the surface. You’re sensing what’s coming before it arrives. This power helps you make wise decisions, avoid repeating old cycles, and recognize when something is truly new.",
+      masculine: "Your strategic awareness is sharp. You’re noticing patterns in people, situations, and outcomes. You’re anticipating problems before they appear. This is long‑range vision, the skill of reading the field and thinking several moves ahead."
     },
     emotional_alchemy: {
       name: "The Power of Emotional Alchemy",
-      feminine: "You’re in a phase of emotional processing. Something old is moving through you — grief, frustration, or a story you’ve outgrown. This power helps you transform heaviness into clarity. You’re not breaking down; you’re breaking through.",
-      masculine: "You’re clearing emotional weight so you can think and act more clearly. This isn’t softness — it’s maintenance. You’re letting stress move instead of storing it. This gives you sharper focus, better decision‑making, and more stability under pressure."
+      feminine: "You’re in a phase of emotional processing. Something old is moving through you... grief, frustration, or a story you’ve outgrown. This power helps you transform heaviness into clarity. You’re not breaking down; you’re breaking through.",
+      masculine: "You’re clearing emotional weight so you can think and act more clearly. This isn’t softness, it’s maintenance. You’re letting stress move instead of storing it. This gives you sharper focus, better decision‑making, and more stability under pressure."
     },
     threshold_wisdom: {
       name: "The Power of Threshold Wisdom",
-      feminine: "You’re standing at an inner doorway — something is ending, and something new is forming. You’re learning to let go without fear and step into the next version of yourself with trust. This is the feminine gift of navigating transitions with grace.",
-      masculine: "You’re shedding an old identity. A role, belief, or pattern is no longer useful. You’re adapting quickly and stepping into a stronger version of yourself. This is evolution — the warrior’s ability to change without losing center."
+      feminine: "You’re standing at an inner doorway... something is ending, and something new is forming. You’re learning to let go without fear and step into the next version of yourself with trust. This is the feminine gift of navigating transitions with grace.",
+      masculine: "You’re shedding an old identity. A role, belief, or pattern is no longer useful. You’re adapting quickly and stepping into a stronger version of yourself. This is evolution, the warrior’s ability to change without losing center."
     },
     receptive_strength: {
       name: "The Power of Receptive Strength",
-      feminine: "You’re learning to let support, intuition, and opportunity come toward you. This is not passivity — it’s openness. You’re allowing life to meet you instead of carrying everything alone, and that is expanding your capacity.",
-      masculine: "You’re gathering information, listening more deeply, and accepting support without ego. This makes you more adaptable and better informed. Receptivity is not weakness — it’s intelligence and strategic advantage."
+      feminine: "You’re learning to let support, intuition, and opportunity come toward you. This is not passivity, it’s openness. You’re allowing life to meet you instead of carrying everything alone, and that is expanding your capacity.",
+      masculine: "You’re gathering information, listening more deeply, and accepting support without ego. This makes you more adaptable and better informed. Receptivity is not weakness, it’s intelligence and strategic advantage."
     },
     devotional_discipline: {
       name: "The Power of Devotional Discipline",
-      feminine: "You’re showing up consistently for what matters. This isn’t hustle — it’s devotion. You’re building something slowly, steadily, and with heart. Your commitment is becoming a source of strength and self‑respect.",
-      masculine: "Your discipline is clean and steady. You’re training, practicing, or building with long‑term focus. This is the warrior’s path — loyalty to your values, your craft, and your word, even when no one is watching."
+      feminine: "You’re showing up consistently for what matters. This isn’t hustle, it’s devotion. You’re building something slowly, steadily, and with heart. Your commitment is becoming a source of strength and self‑respect.",
+      masculine: "Your discipline is clean and steady. You’re training, practicing, or building with long‑term focus. This is the warrior’s path, loyalty to your values, your craft, and your word, even when no one is watching."
     }
   };
 
